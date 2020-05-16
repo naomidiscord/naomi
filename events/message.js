@@ -25,6 +25,12 @@ class Message extends EventStructure {
 
         if (command.guildOnly && message.channel.type !== 'text')
         return message.channel.send(`This command can only be used in a server.`);
+
+        if (command.requiredAPI) {
+            if (command.requiredAPI === 'idiotic' && !client.opts.apiKeys['idiotic']) return message.channel.send(`This command cannot be used, as no Idiotic API key was provided.`);
+            if (command.requiredAPI === 'ksoft' && !client.opts.apiKeys['ksoft']) return message.channel.send(`This command cannot be used, as no KSoft API key was provided.`);
+            if (command.requiredAPI === 'weebsh' && !client.opts.apiKeys['weebsh']) return message.channel.send(`This command cannot be used, as no weeb.sh API key was provided.`);
+        }
     
         if (command.args && (!args.length >= command.args)) {
             if (!command.usage) return message.channel.send(`${command.name} requires at least ${command.args} argument${command.args > 1 ? 's' : '' }.`);

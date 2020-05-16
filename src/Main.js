@@ -14,7 +14,8 @@ class Naomi extends Client {
         this.loadCommands();
         this.loadEvents();
         this.loadManagers();
-        this.loadWebhooks();
+        
+        if (this.webhooks) this.loadWebhooks();
         
         this.login(this.opts.token);
     }
@@ -66,9 +67,11 @@ class Naomi extends Client {
 
     async loadWebhooks() {
         this.webhooks = {}
-        
-        this.webhooks.guildLog = new WebhookClient(this.opts.webhooks.guildLog.id, this.opts.webhooks.guildLog.token);
-        if (this.opts.debug) console.log(`Loaded webhook: guildLog`);
+
+        if (this.opts.webhooks.guildLog) {
+            this.webhooks.guildLog = new WebhookClient(this.opts.webhooks.guildLog.id, this.opts.webhooks.guildLog.token);
+            if (this.opts.debug) console.log(`Loaded webhook: guildLog`);
+        }
     }
 }
 

@@ -8,6 +8,7 @@ class CommandStructure {
         this.cooldown = params.cooldown || 0;
         this.args = params.args || false;
         this.usage = params.usage || null;
+        this.requiredAPI = params.requiredAPI || null;
 
         this.guildOnly = params.guildOnly || false;
         this.developerOnly = params.developerOnly || false;

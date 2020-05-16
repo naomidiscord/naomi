@@ -9,7 +9,8 @@ class Pat extends CommandStructure {
             group: 'Actions',
             aliases: ['pet'],
 
-            usage: '[user, user...]'
+            usage: '[user, user...]',
+            requiredAPI: 'weebsh'
         });
     }
 

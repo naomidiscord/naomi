@@ -9,7 +9,8 @@ class Kiss extends CommandStructure {
             group: 'Actions',
 
             args: 1,
-            usage: '<user, user...>'
+            usage: '<user, user...>',
+            requiredAPI: 'weebsh'
         });
     }
 

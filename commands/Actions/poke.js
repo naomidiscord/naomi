@@ -8,7 +8,8 @@ class Poke extends CommandStructure {
             description: 'Poke yourself/one or more users. Images are provided by weeb.sh.',
             group: 'Actions',
 
-            usage: '[user, user...]'
+            usage: '[user, user...]',
+            requiredAPI: 'weebsh'
         });
     }
 
