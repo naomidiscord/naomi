@@ -34,7 +34,7 @@ The main values that are needed are the `token`, `developers` and `database` val
 }
 ```
 
-Lastly, install all the dependencies. We use Yarn, but you can use NPM if really wanted, although please do not push any `package-lock.json` files if you contribute to the repository.
+Lastly, install all the dependencies. We use Yarn, but you can use NPM if you really want to.
 ```
 yarn install
 npm install
