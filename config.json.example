@@ -1,0 +1,21 @@
+{
+    "token": "",
+    "secret": "",
+    "prefix": "",
+    "developers": [],
+    "apiKeys": {
+        "idiotic": "",
+        "ksoft": "",
+        "weebsh": ""
+    },
+    "webhooks": {
+        "guildLog": {
+            "id": "",
+            "token": ""
+        }
+    },
+    "database": {
+        "uri": "mongodb://",
+        "dbName": ""
+    }
+}
