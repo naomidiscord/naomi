@@ -7,6 +7,12 @@ const DatabaseManager = require('./managers/DatabaseManager');
 /* Useful extensions */
 Number.prototype.percentage = (pct) => (pct / 100) * this;
 
+String.prototype.toTitleCase = () => {
+    return this.toLowerCase().split(' ').map((word) => {
+        return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
+}
+
 class Naomi extends Client {
     constructor(opts) {
         super(opts.clientOptions);
