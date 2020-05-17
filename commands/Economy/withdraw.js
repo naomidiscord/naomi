@@ -21,7 +21,7 @@ class Withdraw extends CommandStructure {
         const amount = Number(args[0]);
 
         if (amount < 1) return message.channel.send(`You must withdraw at least 1 coin.`);
-        if (user.balance.hand < amount) return message.channel.send(`You don't have enough to withdraw ${Number(amount).toLocaleString()} coin${amount > 1 ? 's' : ''}. You need ${Number(amount - user.balance.bank).toLocaleString()} more.`)
+        if (user.balance.bank < amount) return message.channel.send(`You don't have enough to withdraw ${Number(amount).toLocaleString()} coin${amount > 1 ? 's' : ''}. You need ${Number(user.balance.bank - amount).toLocaleString()} more.`)
     
         const schema = new UserSchema(user);
 

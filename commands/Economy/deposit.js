@@ -21,7 +21,7 @@ class Deposit extends CommandStructure {
         const amount = (args[0].toLowerCase() || args[0]) === 'all' ? Number(user.balance.hand) : Number(args[0]);
 
         if (amount < 1) return message.channel.send(`You must deposit at least 1 coin.`);
-        if (user.balance.hand < amount) return message.channel.send(`You don't have enough to deposit ${Number(amount).toLocaleString()} coin${amount > 1 ? 's' : ''}. You need ${Number(amount - user.balance.hand).toLocaleString()} more.`)
+        if (user.balance.hand < amount) return message.channel.send(`You don't have enough to deposit ${Number(amount).toLocaleString()} coin${amount > 1 ? 's' : ''}. You need ${Number(user.balance.hand - amount).toLocaleString()} more.`)
         
         const schema = new UserSchema(user);
 
