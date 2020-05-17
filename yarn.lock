@@ -51,6 +51,11 @@ centra@^2.2.1:
   resolved "https://registry.yarnpkg.com/centra/-/centra-2.4.0.tgz#53846f97db27705e9f90c46e0f824f6eb697e2d1"
   integrity sha512-AWmF3EHNe/noJHviynZOrdnUuQzT5AMgl9nJPXGvnzGXrI2ZvNDrEcdqskc4EtQwt2Q1IggXb0OXy7zZ1Xvvew==
 
+clone@2.x:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+  integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
+
 combined-stream@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
@@ -140,6 +145,13 @@ mongodb@^3.5.7:
     safe-buffer "^5.1.2"
   optionalDependencies:
     saslprep "^1.0.0"
+
+node-cache@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/node-cache/-/node-cache-5.1.0.tgz#266786c28dcec0fd34385ee29c383e6d6f1aa5de"
+  integrity sha512-gFQwYdoOztBuPlwg6DKQEf50G+gkK69aqLnw4djkmlHCzeVrLJfwvg9xl4RCAGviTIMUVoqcyoZ/V/wPEu/VVg==
+  dependencies:
+    clone "2.x"
 
 node-fetch@^2.6.0:
   version "2.6.0"

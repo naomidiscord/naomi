@@ -1,6 +1,7 @@
 const { Client, WebhookClient, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
 
+const CacheManager = require('./managers/CacheManager');
 const DatabaseManager = require('./managers/DatabaseManager');
 
 class Naomi extends Client {
@@ -61,7 +62,10 @@ class Naomi extends Client {
     }
 
     async loadManagers() {
-        this.db = new DatabaseManager(this.opts.database);
+        this.cache = new CacheManager({ ttl: 3600, interval: 600 });
+        if (this.opts.debug) console.log(`Loaded manager: CacheManager`);
+
+        this.db = new DatabaseManager(this.opts.database, this.cache);
         if (this.opts.debug) console.log(`Loaded manager: DatabaseManager`);
     }
 
