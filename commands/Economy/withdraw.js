@@ -25,10 +25,10 @@ class Withdraw extends CommandStructure {
     
         const schema = new UserSchema(user);
 
-        schema.balance = {
+        schema.set('balance', {
             bank: Number(Number(user.balance.bank) - amount),
             hand: Number(Number(user.balance.hand) + amount)
-        }
+        });
 
         await client.db.collection('users').update({ userID: message.author.id }, schema.toJSON());
 

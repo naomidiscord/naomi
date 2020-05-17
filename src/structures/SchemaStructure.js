@@ -3,12 +3,15 @@ class SchemaStructure {
         this._name = params.name;
     }
 
-    toString() {
-        return JSON.stringify(this);
-    }
-
     toJSON() {
         return Object(this);
+    }
+
+    set(key, value) {
+        if (!this[key]) return false;
+        if (this[key] === value) return false;
+        this[key] = value;
+        return true;
     }
 }
 
