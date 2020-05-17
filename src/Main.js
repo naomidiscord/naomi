@@ -15,7 +15,7 @@ class Naomi extends Client {
         this.loadEvents();
         this.loadManagers();
         
-        if (this.webhooks) this.loadWebhooks();
+        if (this.opts.webhooks) this.loadWebhooks();
         
         this.login(this.opts.token);
     }
