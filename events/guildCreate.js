@@ -16,8 +16,9 @@ class GuildCreate extends EventStructure {
 
         const humans = guild.members.cache.filter((m) => !m.user.bot).size;
         const bots = guild.members.cache.filter((m) => m.user.bot).size;
-        const humanPercentage = (bots/ humans) * 100;
+
         const botPercentage = (humans / bots) * 100;
+        const humanPercentage = 100 - botPercentage;
 
         client.webhooks.guildLog.send(null, {
             username: 'Guild joined',
