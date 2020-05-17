@@ -16,6 +16,8 @@ class GuildCreate extends EventStructure {
 
         const humans = guild.members.cache.filter((m) => !m.user.bot).size;
         const bots = guild.members.cache.filter((m) => m.user.bot).size;
+        const humanPercentage = (bots/ humans) * 100;
+        const botPercentage = (humans / bots) * 100;
 
         client.webhooks.guildLog.send(null, {
             username: 'Guild joined',
@@ -25,11 +27,26 @@ class GuildCreate extends EventStructure {
                     title: guild.name,
                     description: stripIndents`
                     Owned by ${owner.tag}
-                    ${Number(guild.memberCount).toLocaleString()} member${guild.memberCount > 1 ? 's' : ''} (${Number(humans).toLocaleString()} human${humans > 1 ? 's' : ''}, ${Number(bots).toLocaleString()} bot${bots > 1 ? 's' : ''})
+                    ${Number(guild.memberCount).toLocaleString()} member${guild.memberCount > 1 ? 's' : ''} (${Number(humans).toLocaleString()}/${humanPercentage}% human${humans > 1 ? 's' : ''}, ${Number(bots).toLocaleString()}/${botPercentage}% bot${bots > 1 ? 's' : ''})
                     `,
                     thumbnail: {
                         url: 'https://cdn.discordapp.com/embed/avatars/0.png'
                     },
+                    timestamp: Date.now()
+                }
+            ]
+        });
+        
+        if (botPercentage > 50) client.webhooks.guildLog.send(null, {
+            username: 'Potential bot farm joined',
+            embeds: [
+                {
+                    color: 0xFAA61A,
+                    title: guild.name,
+                    description: stripIndents`
+                    Owned by ${owner.tag}
+                    ${Number(guild.memberCount).toLocaleString()} member${guild.memberCount > 1 ? 's' : ''} (${Number(humans).toLocaleString()}/${humanPercentage}% human${humans > 1 ? 's' : ''}, ${Number(bots).toLocaleString()}/${botPercentage}% bot${bots > 1 ? 's' : ''})
+                    `,
                     timestamp: Date.now()
                 }
             ]
