@@ -4,6 +4,9 @@ const { readdirSync } = require('fs');
 const CacheManager = require('./managers/CacheManager');
 const DatabaseManager = require('./managers/DatabaseManager');
 
+/* Useful extensions */
+Number.prototype.percentage = (pct) => (pct / 100) * this;
+
 class Naomi extends Client {
     constructor(opts) {
         super(opts.clientOptions);
