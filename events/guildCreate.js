@@ -17,8 +17,8 @@ class GuildCreate extends EventStructure {
         const humans = guild.members.cache.filter((m) => !m.user.bot).size;
         const bots = guild.members.cache.filter((m) => m.user.bot).size;
 
-        const botPercentage = (bots / guild.memberCount) * 100;
-        const humanPercentage = 100 - botPercentage;
+        const botPercentage = ((bots / guild.memberCount) * 100).toFixed(0);
+        const humanPercentage = (100 - botPercentage).toFixed(0);
 
         client.webhooks.guildLog.send(null, {
             username: 'Guild joined',
@@ -44,10 +44,6 @@ class GuildCreate extends EventStructure {
                 {
                     color: 0xFAA61A,
                     title: guild.name,
-                    description: stripIndents`
-                    Owned by ${owner.tag}
-                    ${Number(guild.memberCount).toLocaleString()} member${guild.memberCount > 1 ? 's' : ''} (${Number(humans).toLocaleString()}/${humanPercentage}% human${humans > 1 ? 's' : ''}, ${Number(bots).toLocaleString()}/${botPercentage}% bot${bots > 1 ? 's' : ''})
-                    `,
                     timestamp: Date.now()
                 }
             ]
