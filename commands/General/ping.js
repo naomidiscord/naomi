@@ -4,7 +4,7 @@ class Ping extends CommandStructure {
     constructor() {
         super({
             name: 'ping',
-            description: 'A ping command',
+            description: 'Check the bot\'s latency to Discord',
             group: 'General'
         });
     }
